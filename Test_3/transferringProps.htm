@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CV</title>
+
+  <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style>
+    #container {
+      padding: 50px;
+      background-color: #FFF;
+    }
+
+    #container:active {
+      background-color: #C8E6C9;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    class Display extends React.Component {
+      render() {
+        return (
+          <div>
+            <p>{this.props.color}</p>
+            <p>{this.props.num}</p>
+            <p>{this.props.size}</p>
+          </div>
+        );
+      }
+    }
+
+    class Label extends React.Component {
+      render() {
+        return (
+          <Display {...this.props}/>
+        );
+      }
+    }
+
+    class Shirt extends React.Component {
+      render() {
+        return (
+          <div>
+            <Label {...this.props}/>
+          </div>
+        );
+      }
+    }
+
+			ReactDOM.render(
+				<div>
+					<Shirt color="ass" num="3.14" size="medium" />
+				</div>,
+				document.querySelector("#container")
+			);
+			</script>
+</body>
+
+</html>
